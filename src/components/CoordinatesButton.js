@@ -2,16 +2,17 @@ import React, { Component } from "react";
 
 export default class DelayedButton extends Component 
 {
-  render() {
-    let onReceiveCoordinates = (event) => {
-      let coordinates = [];
-      coordinates.push(event.clientX);
-      coordinates.push(event.clientY);
-      return coordinates;
-    }
 
+  coordinates = (e) => {
+    let x = e.clientX;
+    let y = e.clientY;
+    let coords = [x, y];
+    this.props.onReceiveCoordinates(coords);
+  }
+
+  render() {
     return (
-      <button onClick={this.onReceiveCoordinates}></button>
+      <button onClick={this.coordinates}></button>
     )
   }
 }
