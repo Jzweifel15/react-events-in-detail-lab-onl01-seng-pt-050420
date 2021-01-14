@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 
-export default class DelayedButton extends Component 
+export default class CoordinatesButton extends Component 
 {
+  setTimeout = (e) => {
+    e.persist();
+    this.props.delay;
+    this.props.onDelayedClick(e);
+  }
+
   render() {
     return (
-      <button></button>
+      <button onClick={this.setTimeout}></button>
     )
   }
 }
